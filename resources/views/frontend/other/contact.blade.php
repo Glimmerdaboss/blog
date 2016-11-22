@@ -5,7 +5,7 @@ Contact page
 @endsection
 
 @section('styles')
-  <link rel="stylesheet" href="http://localhost:8078/blog/resources/assets/sass/form.scss">
+ <link rel="stylesheet" href="http://localhost:8079/blog/public/assets/css/form.css">
 @endsection
 
 @section('content')

@@ -1,5 +1,5 @@
 @section('styles')
-  <link rel="stylesheet" href="http://localhost:8078/blog/resources/assets/sass/common.scss">
+<link rel="stylesheet" href="http://localhost:8079/blog/public/assets/css/common.css">
 @append
 
 @if (Session::has('fail'))

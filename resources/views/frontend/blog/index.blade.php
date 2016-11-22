@@ -5,7 +5,7 @@ Blog title
 @endsection
 
 @section('content')
-<article>
+<article class="blog-post">
 	<h3>Post title</h3>
 	<span class="subtitle">Post Author | Date</span>
 	<p>Post Body</p>

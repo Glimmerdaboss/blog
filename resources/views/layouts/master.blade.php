@@ -7,17 +7,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <title>@yield('title')</title>
-        <link rel="stylesheet" href="http://localhost:8078/blog/resources/assets/sass/app.scss">
-        
-        <style type="text/css" media="screen">@yield('styles')</style>
-        <link rel="author" href="humans.txt">
+        <link rel="stylesheet" href="http://localhost:8079/blog/public/assets/css/main.css">
+                   
+        @yield('styles')
+       
 
     </head>
 
     <body>
         	@include('includes.header')
         	
-        	<div>@yield('content')</div>
+        	<div class="main">@yield('content')</div>
 
         	@include('includes.footer')
     </body>
