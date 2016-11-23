@@ -46,13 +46,13 @@ Route::group(['middleware' => ['web']], function () {
       'as' => 'admin.index'
     ]);
 
-        Route::get('blog/posts/create',[
+        Route::get('/blog/posts/create', [
           'uses' => 'PostController@getCreatePost',
           'as' => 'admin.blog.create_post'
 
     ]);
 
-        Route::get('blog/post/create',[
+        Route::post('/blog/post/create', [
           'uses' => 'PostController@postCreatePost',
           'as' => 'admin.blog.post.create'
     ]);

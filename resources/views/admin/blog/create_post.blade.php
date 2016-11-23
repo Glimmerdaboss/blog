@@ -47,4 +47,3 @@
 @section('scripts')
 <script type="text/javascript" src="http://localhost:8079/blog/public/assets/js/posts.js"></script>
 @endsection
-

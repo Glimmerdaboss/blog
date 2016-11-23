@@ -5,12 +5,12 @@
 @endsection
 
 @section('content')
-	
+
 		<div class="container">
 			@include('includes.info-box')
 
 			<!-- *******************
-			 POST CARD 
+			 POST CARD
 			 ******************* -->
 
 			<div class="card">
@@ -25,15 +25,17 @@
 
 				<section>
 					<ul>
+						@if(count($posts) == 0)
 						<!-- If no posts -->
 						<li>No posts</li>
-
+						@else
 						<!-- If posts -->
+						@foreach($posts as $post)
 						<li>
 							<article>
 								<div class="post-info">
-									<h3>Post Title</h3>
-									<span class="info">Post Author | Date</span>
+									<h3>{{ $post->title }}</h3>
+									<span class="info">{{ $post->author . "|" . $post->created_at }}</span>
 								</div>
 								<div class="edit">
 									<nav>
@@ -44,16 +46,16 @@
 										</ul>
 									</nav>
 								</div>
-
 							</article>
 						</li>
-
+						@endforeach
+						@endif
 					</ul>
-				</section>			
+				</section>
 			</div>
 
 			<!-- *******************
-			 MESSAGE CARD 
+			 MESSAGE CARD
 			 ******************* -->
 
 			 <div class="card">
@@ -88,7 +90,7 @@
 							</article>
 						</li>
 					</ul>
-				</section>			
+				</section>
 			</div>
 		</div>
 

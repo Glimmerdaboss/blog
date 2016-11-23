@@ -3,20 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Post;
 use App\Category;
+use Session;
 
 class PostController extends Controller
 {
     public function getBlogIndex()
     {
-    	return view('frontend.blog.index');
+      $posts = Post::paginate(5);
+    	return view('frontend.blog.index', ['posts'=>$posts]);
     }
 
      public function getSinglePost($post_id, $end = 'frontend')
     {
-    	
+
     	return view($end . '.blog.single');
     }
 
@@ -27,17 +28,17 @@ class PostController extends Controller
 
     public function postCreatePost(Request $request)
     {
-    	$this->validate($request,[
+    	 $this->validate($request, [
     		 'title' => 'required|max:120|unique:posts',
     		 'author' => 'required|max:80',
-    		 'body' => 'required'
+    		 'body' => 'required',
 
     		]);
 
     	$post = new Post();
     	$post->title = $request['title'];
-    	$post->title = $request['author'];
-    	$post->title = $request['body'];
+    	$post->author = $request['author'];
+    	$post->body = $request['body'];
     	$post->save();
 
     	//Attachinging categories
