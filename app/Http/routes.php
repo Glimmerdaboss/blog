@@ -39,25 +39,22 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::group([
       'prefix' => '/admin'
-      
       ], function() {
+
         Route::get('/', [
       'uses' => 'AdminController@getIndex',
-      'as' => 'admin.index'  
+      'as' => 'admin.index'
     ]);
-        Route::get('blog/posts/create',[
 
+        Route::get('blog/posts/create',[
           'uses' => 'PostController@getCreatePost',
           'as' => 'admin.blog.create_post'
 
     ]);
-        Route::get('blog/post/create',[
 
+        Route::get('blog/post/create',[
           'uses' => 'PostController@postCreatePost',
           'as' => 'admin.blog.post.create'
-
     ]);
-
   });
-
 });
