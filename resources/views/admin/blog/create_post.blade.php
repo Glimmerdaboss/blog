@@ -11,12 +11,12 @@
 	<form action="{{ route('admin.blog.post.create') }}" method="post">
 		<div class="input-group">
 			<label for="title">Title</label>
-			<input type="text" name="title" id="title" placeholder="title">
+			<input type="text" name="title" id="title" placeholder="title" {{ $errors->has('title') ? 'class=has-error' : '' }} />
 		</div>
 
 		<div class="input-group">
 			<label for="author">Author</label>
-			<input type="text" name="author" id="author" placeholder="author">
+			<input type="text" name="author" id="author" placeholder="author" {{ $errors->has('author') ? 'class=has-error' : '' }} />
 		</div>
 
 		<div class="input-group">
@@ -35,7 +35,7 @@
 		</div>
 		<div class="input-group">
 		<label for="body">Body</label>
-		<textarea type="text" name="body" id="body" rows="12"></textarea>
+		<textarea type="text" name="body" id="body" rows="12" {{ $errors->has('body') ? 'class=has-error' : '' }} /></textarea>
 		</div>
 		<button type="submit" class="btn">Create Post</button>
 		<input type="hidden" name="_token" value="{{ Session::token() }}" />
