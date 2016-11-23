@@ -18,13 +18,13 @@ Route::group(['middleware' => ['web']], function () {
     	]);
 
    	Route::get('/blog', [
-    'uses' => 'PostController@getBlogIndex',
-    'as' => 'blog.index'
+      'uses' => 'PostController@getBlogIndex',
+      'as' => 'blog.index'
     ]);
 
     Route::get('/blog/{post_id}',[
-    'uses' => 'PostController@getSinglePost',
-    'as' => 'blog.single'
+      'uses' => 'PostController@getSinglePost',
+      'as' => 'blog.single'
     ]);
 
   /* Other routes */
@@ -33,8 +33,8 @@ Route::group(['middleware' => ['web']], function () {
     })->name('about');
 
     Route::get('/contact', [
-   'uses' => 'ContactMessageController@getContactIndex',
-   'as' => 'contact'
+      'uses' => 'ContactMessageController@getContactIndex',
+    'as' => 'contact'
    ]);
 
     Route::group([
@@ -46,13 +46,17 @@ Route::group(['middleware' => ['web']], function () {
       'as' => 'admin.index'
     ]);
 
-        Route::get('/blog/posts/create', [
-          'uses' => 'PostController@getCreatePost',
-          'as' => 'admin.blog.create_post'
+    Route::get('/blog/posts', [
+      'uses' => 'PostController@getPostIndexShowAllPosts',
+      'as' => 'admin.blog.indexshowallposts'
+    ]);
+    Route::get('/blog/posts/create', [
+      'uses' => 'PostController@getCreatePost',
+      'as' => 'admin.blog.create_post'
 
     ]);
 
-        Route::post('/blog/post/create', [
+    Route::post('/blog/post/create', [
           'uses' => 'PostController@postCreatePost',
           'as' => 'admin.blog.post.create'
     ]);
