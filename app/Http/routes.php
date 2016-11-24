@@ -22,7 +22,7 @@ Route::group(['middleware' => ['web']], function () {
       'as' => 'blog.index'
     ]);
 
-    Route::get('/blog/{post_id}',[
+    Route::get('/blog/{post_id}&{end}',[
       'uses' => 'PostController@getSinglePost',
       'as' => 'blog.single'
     ]);
@@ -50,6 +50,14 @@ Route::group(['middleware' => ['web']], function () {
       'uses' => 'PostController@getPostIndexShowAllPosts',
       'as' => 'admin.blog.indexshowallposts'
     ]);
+
+    
+    Route::get('/blog/post/{post_id}&{end}', [
+      'uses' => 'PostController@getSinglePost',
+      'as' => 'admin.blog.post'
+    ]);
+    
+
     Route::get('/blog/posts/create', [
       'uses' => 'PostController@getCreatePost',
       'as' => 'admin.blog.create_post'

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Blog title
+Blog index
 @endsection
 
 @section('styles')
@@ -9,12 +9,13 @@ Blog title
 @endsection
 
 @section('content')
+@include('includes.info-box')
 	@foreach($posts as $post)
 		<article class="blog-post">
 				<h3>{{$post->title}}</h3>
 				<span class="subtitle">{{ $post->author . "|" . $post->created_at }}</span>
 				<p>{{ $post->body }}</p>
-				<a href="#">Read More</a>
+				<a href="{{ route('blog.single' , [ 'post_id'=>$post->id, 'end' =>'admin' ]) }}">Read More</a>
 		</article>
 	@endforeach
 		@if($posts->lastPage()>1)
