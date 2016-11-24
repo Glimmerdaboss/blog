@@ -4,8 +4,8 @@
 <div class="container">
 
 <section id="post-admin">
-    <a href="">Edit post</a>
-    <a href="">Delete post</a>
+    <a href="{{ route('admin.blog.post.edit',['post_id' =>$post->id]) }}">Edit post</a>
+    <a href="{{ route('admin.blog.post.delete',['post_id' =>$post->id]) }}">Delete post</a>
 </section>
 <section class="post">
     <h1>{{ $post->title }}</h1>
