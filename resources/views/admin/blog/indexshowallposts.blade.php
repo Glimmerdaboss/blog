@@ -11,14 +11,14 @@
       <a href="{{ route('admin.blog.create_post') }}" class="btn">New post</a>
     </section>
   <section class="list">
-    <ul>
+
       @if(count($posts) == 0)
       <!-- If no posts -->
-      <li>No posts</li>
+      No posts
       @else
       <!-- If posts -->
       @foreach($posts as $post)
-      <li>
+
         <article>
           <div class="post-info">
             <h3>{{ $post->title }}</h3>
@@ -34,10 +34,10 @@
             </nav>
           </div>
         </article>
-      </li>
+
       @endforeach
       @endif
-    </ul>
+
   </section>
   @if($posts->lastPage()>1)
     <section class="pagination">
