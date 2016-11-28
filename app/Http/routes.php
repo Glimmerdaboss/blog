@@ -11,85 +11,82 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
     Route::get('/', [
-    	'uses' => 'PostController@getBlogIndex',
-    	'as' => 'blog.index'
-    	]);
+    	'as' => 'blog.index', 'uses' => 'PostController@getBlogIndex'
+    	
+    ]);
 
    	Route::get('/blog', [
-      'uses' => 'PostController@getBlogIndex',
-      'as' => 'blog.index'
+     'as' => 'blog.index' ,'uses' => 'PostController@getBlogIndex'
+      
     ]);
 
     Route::get('/blog/{post_id}&{end}',[
-      'uses' => 'PostController@getSinglePost',
-      'as' => 'blog.single'
+     'as' => 'blog.single', 'uses' => 'PostController@getSinglePost'
+      
     ]);
 
   /* Other routes */
     Route::get('/about', function() {
-    return view ('frontend.other.about');
+      return view ('frontend.other.about');
     })->name('about');
 
     Route::get('/contact', [
-      'uses' => 'ContactMessageController@getContactIndex',
-    'as' => 'contact'
-   ]);
+      'as' => 'contact', 'uses' => 'ContactMessageController@getContactIndex'
+    
+    ]);
 
     Route::group([
       'prefix' => '/admin'
       ], function() {
 
         Route::get('/', [
-      'uses' => 'AdminController@getIndex',
-      'as' => 'admin.index'
+      'as' => 'admin.index', 'uses' => 'AdminController@getIndex'
+      
     ]);
 
     Route::get('/blog/posts', [
-      'uses' => 'PostController@getPostIndexShowAllPosts',
-      'as' => 'admin.blog.indexshowallposts'
+      'as' => 'admin.blog.indexshowallposts', 'uses' => 'PostController@getPostIndexShowAllPosts'
+      
     ]);
 
-    
     Route::get('/blog/categories', [
-      'uses' => 'CategoryController@getCategoryIndex',
-      'as' => 'admin.blog.categories'
-
+      'as' => 'admin.blog.categories', 'uses' => 'CategoryController@getCategoryIndex'
+      
     ]);
-    
+
     
     Route::get('/blog/post/{post_id}&{end}', [
-      'uses' => 'PostController@getSinglePost',
-      'as' => 'admin.blog.post'
+      'as' => 'admin.blog.post','uses' => 'PostController@getSinglePost'
+      
     ]);
     
     Route::get('/blog/posts/create', [
-      'uses' => 'PostController@getCreatePost',
-      'as' => 'admin.blog.create_post'
+      'as' => 'admin.blog.create_post', 'uses' => 'PostController@getCreatePost'
+      
 
     ]);
 
     Route::post('/blog/post/create', [
-          'uses' => 'PostController@postCreatePost',
-          'as' => 'admin.blog.post.create'
+      'as' => 'admin.blog.post.create', 'uses' => 'PostController@postCreatePost'
+          
     ]);
 
      Route::get('/blog/post/{post_id}/edit', [
-      'uses' => 'PostController@getUpdatePost',
-      'as' => 'admin.blog.post.edit'
+      'as' => 'admin.blog.post.edit', 'uses' => 'PostController@getUpdatePost'
+      
     ]);
 
      Route::post('/blog/post/update', [
-      'uses' => 'PostController@postUpdatePost',
-      'as' => 'admin.blog.post.update'
+      'as' => 'admin.blog.post.update', 'uses' => 'PostController@postUpdatePost'
+      
     ]);
 
      Route::get('/blog/post/{post_id}/delete', [
-      'uses' => 'PostController@getDeletePost',
-      'as' => 'admin.blog.post.delete'
+      'as' => 'admin.blog.post.delete','uses' => 'PostController@getDeletePost'
+      
     ]);
 
 
   });
-});
+
